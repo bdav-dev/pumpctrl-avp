@@ -4,11 +4,16 @@ struct FlowrateResponse: Codable {
     let flowrate: Float
 }
 
-func getFlowrate() async -> Float? {
-    let urlString = "http://192.168.220.1:1880/flowrate"
-    let url = URL(string: urlString)
+func getFlowrate(url: String) async -> Float? {
+    let url = URL(
+        string: formatUrlString(url) + "flowrate"
+    );
     
-    var request = URLRequest(url: url!)
+    guard let url = url else {
+        return nil;
+    }
+    
+    var request = URLRequest(url: url)
     request.httpMethod = "GET"
 
     do {
@@ -20,20 +25,34 @@ func getFlowrate() async -> Float? {
     }
 }
 
-func setPumpIntensity(intensity: Float) async {
-    let urlString = "http://192.168.220.1:1880/pumpctrl"
-    let url = URL(string: urlString)
+func setPumpIntensity(url: String, intensity: Float) async {
+    let url = URL(
+        string: formatUrlString(url) + "pumpctrl"
+    );
     
-    var request = URLRequest(url: url!)
+    guard let url = url else {
+        return;
+    }
+    
+    var request = URLRequest(url: url)
     request.httpMethod = "POST"
     request.setValue("application/json", forHTTPHeaderField: "Content-Type")
     
     let bodyData: [String: Any] = ["signal": intensity]
     guard let httpBody = try? JSONSerialization.data(withJSONObject: bodyData, options: []) else {
-        print("Failed to serialize JSON")
         return
     }
     request.httpBody = httpBody
 
     let _ = try? await URLSession.shared.data(for: request)
+}
+
+
+
+func formatUrlString(_ url: String) -> String {
+    if !url.hasSuffix("/") {
+        return url + "/";
+    }
+    
+    return url;
 }
