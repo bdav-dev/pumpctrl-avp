@@ -38,7 +38,7 @@ func setPumpIntensity(url: String, intensity: Float) async {
     request.httpMethod = "POST"
     request.setValue("application/json", forHTTPHeaderField: "Content-Type")
     
-    let bodyData: [String: Any] = ["signal": intensity]
+    let bodyData: [String: Any] = ["signal": String(Int(intensity))]
     guard let httpBody = try? JSONSerialization.data(withJSONObject: bodyData, options: []) else {
         return
     }

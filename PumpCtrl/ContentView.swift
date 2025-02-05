@@ -148,6 +148,8 @@ struct ContentView: View {
             url = UserDefaults.standard.string(forKey: ContentView.userDefaultsUrlKey) ?? "";
             urlTextFieldValue = url;
             
+            triggerLocalNetworkPrivacyAlert()
+            
             timer = Timer.publish(every: 0.5, on: .main, in: .common).autoconnect()
                 .sink { _ in
                     Task {
