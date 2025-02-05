@@ -4,16 +4,16 @@ import RealityKitContent
 import Combine
 
 struct ContentView: View {
-    private static let userDefaultsUrlKey = "pumpctrlapiurl";
+    private static let userDefaultsUrlKey = "pumpctrlapiurl"
     
     @State private var timer: AnyCancellable?
     
-    @State private var urlTextFieldValue: String = "";
+    @State private var urlTextFieldValue: String = ""
     @State private var pumpIntensitySliderValue: Float = 0.0
     
     @State private var pumpIntensity: Float = 0.0
     @State private var flowrate: Float?
-    @State private var url: String = "";
+    @State private var url: String = ""
     @State private var showSettings = false
     
     var formattedFlowrate: String {
@@ -128,12 +128,12 @@ struct ContentView: View {
                 .padding()
                 
                 Button(action: {
-                    let formattedUrl = urlTextFieldValue.trimmingCharacters(in: .whitespacesAndNewlines);
+                    let formattedUrl = urlTextFieldValue.trimmingCharacters(in: .whitespacesAndNewlines)
                     
-                    UserDefaults.standard.set(formattedUrl, forKey: ContentView.userDefaultsUrlKey);
-                    url = formattedUrl;
+                    UserDefaults.standard.set(formattedUrl, forKey: ContentView.userDefaultsUrlKey)
+                    url = formattedUrl
                     
-                    showSettings = false;
+                    showSettings = false
                 }) {
                     Text("Save")
                         .frame(maxWidth: .infinity)
@@ -145,15 +145,15 @@ struct ContentView: View {
             .padding()
         })
         .onAppear {
-            url = UserDefaults.standard.string(forKey: ContentView.userDefaultsUrlKey) ?? "";
-            urlTextFieldValue = url;
+            url = UserDefaults.standard.string(forKey: ContentView.userDefaultsUrlKey) ?? ""
+            urlTextFieldValue = url
             
             triggerLocalNetworkPrivacyAlert()
             
             timer = Timer.publish(every: 0.5, on: .main, in: .common).autoconnect()
                 .sink { _ in
                     Task {
-                        self.flowrate =  await getFlowrate(url: url);
+                        self.flowrate =  await getFlowrate(url: url)
                     }
                 }
         }
