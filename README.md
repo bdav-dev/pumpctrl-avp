@@ -1,7 +1,7 @@
 # PumpCtrl
 Diese für die Apple Vision Pro entwickelte App ermöglicht die Steuerung einer Pumpe und die Anzeige des gemessenen Durchflusses eines E+H Messemodells.
 
-- Platform: **visionOS**
+- Plattform: **visionOS**
 - Programmiersprache: **Swift**
 - genutzte IDE: **Xcode**
 
