@@ -5,6 +5,8 @@ Diese für die Apple Vision Pro entwickelte App ermöglicht die Steuerung einer 
 - Programmiersprache: **Swift**
 - genutzte IDE: **Xcode**
 
+<br/>
+
 > Entwickelt im Rahmen der **Studienarbeit** im **6. Semester** an der **DHBW Lörrach**  
 > von **Musa Akyürek** und **David Berezowski**
 > 
