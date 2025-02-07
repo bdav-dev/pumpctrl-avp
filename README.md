@@ -7,7 +7,7 @@ Diese für die Apple Vision Pro entwickelte App ermöglicht die Steuerung einer 
 
 <br/>
 
-> Entwickelt im Rahmen der **Studienarbeit** im **6. Semester** an der **DHBW Lörrach**  
+> Entwickelt im Rahmen der **Studienarbeit** im **5. & 6. Semester** an der **DHBW Lörrach**  
 > von **Musa Akyürek** und **David Berezowski**
 > 
 > Siehe auch: [dhbw-eh-messemodell-avp](https://github.com/bdav-dev/dhbw-eh-messemodell-avp)  
