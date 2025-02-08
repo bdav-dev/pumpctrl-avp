@@ -1,6 +1,6 @@
 # PumpCtrl
 
-<img src="https://github.com/user-attachments/assets/8979cd1e-f8ad-4f5b-a172-32bff6d2fadc" width="110" align="right"/>
+<img src="https://github.com/user-attachments/assets/8979cd1e-f8ad-4f5b-a172-32bff6d2fadc" width="110" align="right" alt="PumpCtrl app icon"/>
 Diese für die Apple Vision Pro entwickelte App ermöglicht die Steuerung einer Pumpe und die Anzeige des gemessenen Durchflusses eines E+H Messemodells.
 
 <br clear="right"/>
